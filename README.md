@@ -32,7 +32,7 @@ The example project for StringBoot service
 - Build project
 ```shell script
 $ ./mvnw clean package
-$ cd hello-word
+$ cd spring-boot-rabbitmq
 $ ./mvnw spring-boot:run
 ...
 ```
