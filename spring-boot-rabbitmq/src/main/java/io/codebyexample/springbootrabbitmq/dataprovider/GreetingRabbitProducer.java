@@ -5,7 +5,7 @@ import io.codebyexample.springbootrabbitmq.core.entities.Greeting;
 /**
  * @author huypva
  */
-public interface GreetingRabbitProvider {
+public interface GreetingRabbitProducer {
 
   void sendGreeting(Greeting greeting);
 

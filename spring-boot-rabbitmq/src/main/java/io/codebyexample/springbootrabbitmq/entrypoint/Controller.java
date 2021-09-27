@@ -1,7 +1,7 @@
 package io.codebyexample.springbootrabbitmq.entrypoint;
 
 import io.codebyexample.springbootrabbitmq.core.entities.Greeting;
-import io.codebyexample.springbootrabbitmq.dataprovider.GreetingRabbitProvider;
+import io.codebyexample.springbootrabbitmq.dataprovider.GreetingRabbitProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
   @Autowired
-  private GreetingRabbitProvider greetingRabbitProvider;
+  private GreetingRabbitProducer greetingRabbitProvider;
 
   @GetMapping("/greet")
   public Greeting send(@RequestParam(name = "name") String name) {

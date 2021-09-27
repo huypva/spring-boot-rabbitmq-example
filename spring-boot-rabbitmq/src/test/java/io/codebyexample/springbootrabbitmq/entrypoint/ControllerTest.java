@@ -2,15 +2,13 @@ package io.codebyexample.springbootrabbitmq.entrypoint;
 
 import static org.hamcrest.Matchers.is;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.doNothing;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import io.codebyexample.springbootrabbitmq.core.entities.Greeting;
-import io.codebyexample.springbootrabbitmq.dataprovider.GreetingRabbitProvider;
+import io.codebyexample.springbootrabbitmq.dataprovider.GreetingRabbitProducer;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +27,7 @@ class ControllerTest {
   private MockMvc mockMvc;
 
   @MockBean
-  private GreetingRabbitProvider greetingRabbitProvider;
+  private GreetingRabbitProducer greetingRabbitProvider;
 
   @Test
   void greet() throws Exception {

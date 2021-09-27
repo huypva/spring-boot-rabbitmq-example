@@ -1,6 +1,5 @@
 package io.codebyexample.springbootrabbitmq.dataprovider;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.codebyexample.springbootrabbitmq.configuration.RabbitConfiguration;
 import io.codebyexample.springbootrabbitmq.core.entities.Greeting;
 import io.codebyexample.springbootrabbitmq.util.GsonUtils;
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @author huypva
  */
 @Component
-public class GreetingRabbitProviderImpl implements GreetingRabbitProvider {
+public class GreetingRabbitProducerImpl implements GreetingRabbitProducer {
 
   @Autowired
   RabbitConfiguration rabbitConfiguration;
