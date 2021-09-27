@@ -28,7 +28,7 @@ The example project for StringBoot service
 ### Start infrastructure
 
 ```shell script
-$ docker-compose -f docker-compose-infrastructure.yml -p spring-boot-rabbit-infrastructure up -d
+$ docker-compose -f ./docker-compose-infrastructure.yml -p spring-boot-rabbit-infrastructure up -d
 ```
 
 ### Start project in local
@@ -45,7 +45,7 @@ $ ../mvnw spring-boot:run
 
 - Start project
 ```shell script
-$ docker-compose -f docker-compose-service.yml -p spring-boot-rabbit-service up -d
+$ docker-compose -f ./docker-compose-service.yml -p spring-boot-rabbit-service up -d
 ```
 
 - Stop project
