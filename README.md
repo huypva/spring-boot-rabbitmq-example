@@ -45,7 +45,7 @@ $ ../mvnw spring-boot:run
 
 - Start project
 ```shell script
-docker-compose up -d
+$ docker-compose -f docker-compose-service.yml -p spring-boot-rabbit-service up -d
 ```
 
 - Stop project
@@ -68,3 +68,5 @@ $ curl http://localhost:8081/greet?name=World
 - https://spring.io/guides/gs/messaging-rabbitmq/
 - https://www.baeldung.com/spring-amqp
 - https://www.javainuse.com/spring/spring-boot-rabbitmq-hello-world
+- https://jstobigdata.com/rabbitmq/rabbitmq-with-spring-amqp-and-spring-boot/
+- https://kipalog.com/posts/RabbitMQ-Topic-Exchange-Spring-Boot-Example
