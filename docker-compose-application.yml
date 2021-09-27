@@ -1,0 +1,9 @@
+version: "3.4"
+services:
+  spring-boot-rabbitmq:
+    build: spring-boot-rabbitmq
+    container_name: 'spring-boot-rabbitmq'
+    environment:
+      - spring_profiles_active=docker
+    ports:
+      - 8081:8081
