@@ -4,4 +4,9 @@ spring:
   profiles:
     active: local
   application:
-    name: "hello-word"
+    name: "spring-boot-rabbitmq"
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest

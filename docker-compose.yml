@@ -7,3 +7,8 @@ services:
       - spring_profiles_active=docker
     ports:
       - 8081:8081
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"

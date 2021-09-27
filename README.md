@@ -9,7 +9,7 @@ The example project for StringBoot service
 ## Project structure
 ```
 .
-├── hello-world
+├── spring-boot-rabbitmq
 │   ├── Dockerfile
 │   ...
 ├── docker-compose.yaml
@@ -25,15 +25,19 @@ The example project for StringBoot service
     [Docker Compose](https://github.com/docker/compose)
 
 ## Start project
-### Start project in local
+### Start infrastructure
 
-- Install infrastructure
+```shell script
+$ docker-compose -f docker-compose-infrastructure.yml -p spring-boot-rabbit-infrastructure up -d
+```
+
+### Start project in local
 
 - Build project
 ```shell script
 $ ./mvnw clean package
 $ cd spring-boot-rabbitmq
-$ ./mvnw spring-boot:run
+$ ../mvnw spring-boot:run
 ...
 ```
 
@@ -52,10 +56,15 @@ docker-compose down
 ## Run testing
 
 ```shell script
-curl http://localhost:8081/greet?name=World
+$ curl http://localhost:8081/greet?name=World
+2021-09-27 10:33:53.039  INFO 1765 --- [ntContainer#0-1] i.c.s.e.rabbitmq.GreetingRabbitListener  : Listen message from Rabbit: {"id":0,"message":"Hello World!"}
+2021-09-27 10:33:53.044  INFO 1765 --- [ntContainer#0-1] i.c.s.e.rabbitmq.GreetingRabbitListener  : Message id=0, message=Hello World!
 ```
-
 
 ## Contribute
 
 ## Reference
+
+- https://spring.io/guides/gs/messaging-rabbitmq/
+- https://www.baeldung.com/spring-amqp
+- https://www.javainuse.com/spring/spring-boot-rabbitmq-hello-world

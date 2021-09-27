@@ -1,15 +1,18 @@
 package io.codebyexample.springbootrabbitmq.entrypoint;
 
 import static org.hamcrest.Matchers.is;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.doNothing;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import io.codebyexample.springbootrabbitmq.core.entity.Greeting;
-import io.codebyexample.springbootrabbitmq.core.usecase.GreetUseCase;
+import io.codebyexample.springbootrabbitmq.core.entities.Greeting;
+import io.codebyexample.springbootrabbitmq.dataprovider.GreetingRabbitProvider;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -26,14 +29,15 @@ class ControllerTest {
   private MockMvc mockMvc;
 
   @MockBean
-  private GreetUseCase greetUseCase;
+  private GreetingRabbitProvider greetingRabbitProvider;
 
   @Test
   void greet() throws Exception {
     String api = "/greet?name=World";
-    Greeting greeting = new Greeting(1, "Hello World!");
+    String message = String.format("Hello %s!", "World");
+    Greeting greeting = new Greeting(0, message);
 
-    given(greetUseCase.greet("World")).willReturn(greeting);
+    Mockito.doNothing().when(greetingRabbitProvider).sendGreeting(any());
 
     ResultActions resultActions = mockMvc.perform(get(api))
         .andDo(print());

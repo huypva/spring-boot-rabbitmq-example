@@ -1,4 +1,4 @@
-package io.codebyexample.springbootrabbitmq.core.entity;
+package io.codebyexample.springbootrabbitmq.core.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,8 +7,8 @@ import lombok.Setter;
 /**
  * @author huypva
  */
-@Setter
 @Getter
+@Setter
 @AllArgsConstructor
 public class Greeting {
 
